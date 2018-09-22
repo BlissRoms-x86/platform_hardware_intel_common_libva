@@ -47,7 +47,10 @@ LOCAL_CFLAGS_64 += \
 
 LOCAL_CFLAGS := \
 	$(if $(filter user,$(TARGET_BUILD_VARIANT)),,-DENABLE_VA_MESSAGING) \
-	-DLOG_TAG=\"libva\"
+	-DLOG_TAG=\"libva\" \
+        -Wno-unused-parameter \
+        -Wno-missing-field-initializers \
+        -Wno-sign-compare
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/..
 
@@ -83,7 +86,9 @@ LOCAL_SRC_FILES := \
 	drm/va_drm_utils.c
 
 LOCAL_CFLAGS += \
-	-DLOG_TAG=\"libva-android\"
+	-DLOG_TAG=\"libva-android\" \
+        -Wno-unused-parameter \
+        -Wno-missing-field-initializers
 
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/drm
